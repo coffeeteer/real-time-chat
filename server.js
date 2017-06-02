@@ -13,27 +13,27 @@ app.set('view engine', 'pug');
 
 app.use(express.static('public'));
 
-app.use(function(request, response, next){
+// app.use((request, response, next) =>{
 	// console.log('In middleware 1');
-	response.write('HEADER ');
-	next();
+	// response.write('HEADER ');
+	// next();
 	// console.log('Out of Middleware 1');
-});
+// });
 
-app.use(function(request, response, next){
+// app.use((request, response, next) => {
 	// console.log('In Middleware 2');
-	response.write('OTHER ')
-	next();
+	// response.write('OTHER ')
+	// next();
 	// console.log('Out of Middleware 2');
-});
+// });
 
-app.get('/', function(request, response){
+app.get('/', (request, response) =>{
 	response.end('Hello World.');
-	// console.log('In Handler');
+	console.log('In Handler');
 });
 
-app.get('/home', function(request,response){
-	response.render('index', {title: "Title!!!!!!!"})
+app.get('/home', (request,response)=>{
+	response.render('index', {title: 'This is my title.'})
 });
 
 app.use(express.static('/public'));
