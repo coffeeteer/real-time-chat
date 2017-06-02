@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/coffeeteer/real-time-chat#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
