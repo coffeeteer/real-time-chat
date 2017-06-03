@@ -27,8 +27,9 @@ const io = socketIo(server);
 
 io.on('connection', (socket) => {
 	console.log('Client Connected');
-	socket.on("chat:add", (data) => {
+	socket.on('chat:add', (data) => {
 		console.log(data, 'data');
+		io.emit('chat:added', data)
 	});
 });
 
