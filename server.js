@@ -2,7 +2,7 @@
 
 var http = require('http');
 var express = require('express');
-//var pug = require('pug');
+var socketIo = require('socket.io');
 
 const app = express();
 
@@ -39,6 +39,11 @@ app.get('/home', (request,response)=>{
 app.use(express.static('/public'));
 
 const server = new http.Server(app);
+const io = socketIo(server);
+
+// io.on('connection', socket => {
+// 	consol.log('Client Connected')
+// })
 
 const port = 3010;
 server.listen(port, () => {
