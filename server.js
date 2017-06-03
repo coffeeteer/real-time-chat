@@ -25,9 +25,9 @@ app.get('/home', (request,response)=>{
 const server = new http.Server(app);
 const io = socketIo(server);
 
-io.on('connection', socket => {
+io.on('connection', (socket) => {
 	console.log('Client Connected');
-	socket.on('chat:add', data => {
+	socket.on("chat:add", (data) => {
 		console.log(data, 'data');
 	});
 });
