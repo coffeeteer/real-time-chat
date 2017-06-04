@@ -11,24 +11,23 @@ const app = express();
 
 app.set('view engine', 'pug');
 
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 app.get('/', (request, response) =>{
 	response.end('Hello World.');
-	console.log('In Handler');
 });
 
-app.get('/home', (request,response)=>{
+app.get('/home', function(request, response){
 	response.render('index', {title: 'This is my title.'})
 });
 
 const server = new http.Server(app);
 const io = socketIo(server);
 
-io.on('connection', (socket) => {
+io.on('connection', function(socket) {
 	console.log('Client Connected');
-	socket.on('chat:add', (data) => {
-		console.log(data, 'data');
+	socket.on('chat:add', function(data) {
+		console.log(data);
 		io.emit('chat:added', data)
 	});
 });

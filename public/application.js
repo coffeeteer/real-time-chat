@@ -1,7 +1,7 @@
 'use strict';
 
 const socket = io();
-socket.emit("chat:add");
+socket.emit('chat:add');
 
 const chatInput = document.querySelector('.chat-form input[type=text]');
 
@@ -22,8 +22,8 @@ chatInput.addEventListener('keypress', (event) => {
 	event.target.value = '';
 });
 
-const chatList = document.querySelector('.chat-list ul');
-socket.on('chat:added', (data) => {
+const chatList =  document.querySelector('.chat-list ul');
+socket.on('chat:added', function(data) {
 	const messageElement = document.createElement('li');
 	messageElement.innerText = data.message;
 	chatList.appendChild(messageElement);
